@@ -9,15 +9,19 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-export default function CourseInput({ visible, onAddCourse,onCancel }) {
-    const [enteredCourseText, setEnteredCourseText] = useState("")
-    const addCourseHandler = () =>{
-        onAddCourse(enteredCourseText)
-        setEnteredCourseText("")
-    }
-    const courseInputHandler = (enteredText) =>{
-        setEnteredCourseText(enteredText)
-    }
+export default function CourseInput({ visible, onAddCourse, onCancel }) {
+
+const [enteredCourseText, setEnteredCourseText] = useState("");
+
+  const addCourseHandler = () => {
+    onAddCourse(enteredCourseText);
+    setEnteredCourseText("");
+  };
+
+  const courseInputHandler = (enteredText) => {
+    setEnteredCourseText(enteredText);
+  };
+
   return (
     <Modal animationType="slide" visible={visible}>
       <View style={styles.inputContainer}>
@@ -25,7 +29,12 @@ export default function CourseInput({ visible, onAddCourse,onCancel }) {
           style={styles.image}
           source={require("../assets/images/cblogo.png")}
         />
-        <TextInput style={styles.textInput} placeholder="Yeni Kurs Ekle" value={enteredCourseText} onChangeText={courseInputHandler}/>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Yeni Kurs Ekle"
+          value={enteredCourseText}
+          onChangeText={courseInputHandler}
+        />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
             <Button title="İptal" color="red" onPress={onCancel} />
@@ -60,7 +69,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: "pink",
     backgroundColor: "pink",
-    fontSize:18,
+    fontSize: 18,
   },
   buttonContainer: {
     flexDirection: "row",
